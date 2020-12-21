@@ -3,6 +3,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {graphql} from 'gatsby'
 import {Layout, ImageGallery, ProductQuantityAdder} from 'components'
+import {Button} from '../../components/Button'
 import {Grid, SelectWrapper, Price} from './styles'
 import CartContext from 'context/CartContext'
 import {navigate, useLocation} from '@reach/router'
@@ -13,19 +14,7 @@ export const query = graphql`
 
             shopifyProduct(shopifyId: {eq: $shopifyId}
             ) {
-                title
-                shopifyId
-                description
-                images {
-                  id
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
-                  }
-                }
+                ...ShopifyProductFields
               }
             }
     
@@ -40,7 +29,7 @@ const ProductTemplate = (props) => {
     const {getProductById} = useContext(CartContext)
 
     const {search, origin, pathname} = useLocation()
-    // console.log(search, origin, pathname);
+
     ;
     const variantId = queryString.parse(search).variant;
 
@@ -67,6 +56,7 @@ const ProductTemplate = (props) => {
 
     return (
         <Layout>
+          <Button onClick={()=>navigate(-1)}>Productos</Button>
             <Grid>
                 <div>
                 <h1>{title}</h1>
