@@ -14,7 +14,11 @@ const Content = styled.div`
      display: grid;
      grid-gap: 20px;
      margin-top: 20px;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
+
+    @media(min-width: 768px){
+        grid-template-columns: 1fr 3fr;
+    }
  `;
 
 const AllProducts = () => {
