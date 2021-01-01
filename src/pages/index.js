@@ -12,6 +12,7 @@ const IndexPage = () => {
 
   return(
     <Layout>
+      <SEO title= 'Inicio' description= 'Gatsby Sombreros HomePage'/>
       <HomepageCollectionsGrid collections = {collections.filter(collection=> collection.node.title !== 'Top ventas' )}/>
       <FeaturedProducts/>
     </Layout>

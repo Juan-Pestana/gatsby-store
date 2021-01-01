@@ -13,6 +13,7 @@ const HomepageCollectionsGrid = ({collections}) => {
             {saleCollection && 
                 <CollectionTile
                 sale
+                destination={`/allProducts?c=${encodeURIComponent(saleCollection.node.shopifyId)}`}
                 title={saleCollection.node.title}
                 description={saleCollection.node.description}
                 backgroundImage={saleCollection.node.image.localFile.childImageSharp.fluid}
@@ -20,6 +21,8 @@ const HomepageCollectionsGrid = ({collections}) => {
             <OtherCollectionsWrapper>
                 {otherCollections.map(collection=>
                     <CollectionTile
+                    destination={`/allProducts?c=${encodeURIComponent(collection.node.shopifyId)}`}
+
                     title={collection.node.title}
                     description={collection.node.description}
                     backgroundImage={collection.node.image.localFile.childImageSharp.fluid}

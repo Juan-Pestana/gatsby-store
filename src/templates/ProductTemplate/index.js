@@ -4,6 +4,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import {graphql} from 'gatsby'
 import {Layout, ImageGallery, ProductQuantityAdder} from 'components'
 import {Button} from '../../components/Button'
+import {SEO} from '../../components/SEO'
 import {Grid, SelectWrapper, Price} from './styles'
 import CartContext from 'context/CartContext'
 import {navigate, useLocation} from '@reach/router'
@@ -56,6 +57,7 @@ const ProductTemplate = (props) => {
 
     return (
         <Layout>
+          <SEO description= {description} title={title}/>
           <Button onClick={()=>navigate(-1)}>Productos</Button>
             <Grid>
                 <div>
@@ -93,7 +95,7 @@ const ProductTemplate = (props) => {
                     images={images}/>
                 </div>
             </Grid>
-            
+          
         </Layout>
     )
 }

@@ -45,4 +45,13 @@ export const CartItem = styled.div`
         }
     }
 
-`
+`;
+
+export const Footer = styled.footer`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    >div:last-child{
+        text-align: right;
+    }
+`;
