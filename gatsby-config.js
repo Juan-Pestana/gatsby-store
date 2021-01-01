@@ -11,17 +11,18 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-optional-chaining`,
+
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          `open sans\:400`,
-          'open sans:400i',
-          `open sans\:700`,
-          'open sans:700i',
-          `open sans\:800`,
-          'open sans:800i',
-        ],
+        fonts: {
+          google: [
+            {
+              family: "Open Sans",
+              variants: ["400", "700", "800"],
+            },
+          ],
+        },
       },
     },
     {
